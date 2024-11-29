@@ -1,0 +1,38 @@
+/* Navbar personalizada */
+.navbar {
+    border-bottom: 2px solid #ffffff ;/* Exemplo: borda branca embaixo da navbar */
+}
+
+.navbar-brand {
+    font-family: 'Arial', sans-serif;  /* Altere a fonte do logo */
+    font-size: 1.8em;  /* Aumente o tamanho da fonte */
+}
+
+.nav-link {
+    color: #100000 !important;  /* Cor do texto dos links */
+    padding: 10px 15px;  /* Espaçamento entre os links */
+    transition: background-color 0.3s ease;  /* Transição suave ao passar o mouse */
+}
+
+.nav-link:hover {
+    background-color: #333333;  /* Cor de fundo ao passar o mouse sobre os links */
+    color: #4CAF50 !important;  /* Muda a cor do texto ao passar o mouse */
+}
+
+.navbar-toggler-icon {
+    background-color: #101010;  /* Cor do ícone do menu colapsável */
+}
+
+/* Navbar fixa no topo */
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;  /* Garante que a navbar fique acima do conteúdo */
+}
+
+.nav-top{
+    line-height: 40px;
+    background-color: var(--black);
+}
