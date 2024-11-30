@@ -58,7 +58,8 @@ def update(request, id):
     return redirect(fproduto)
 
 
-
+def celulares(request):
+    return render(request, "celulares.html")
 
 
 

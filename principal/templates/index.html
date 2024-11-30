@@ -20,35 +20,34 @@
         <h1 class="text-center">Acesso</h1>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- Logo ou Marca -->
-                <a class="navbar-brand" href="{% url 'findex' %}">Inicio</a>
-
-                <!-- Botão para telas pequenas (dispositivos móveis) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Links de navegação -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'fhistoria' %}">História</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Vendas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'flogin' %}">Entrar</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Imagem à direita na navbar -->
-                <img src="{% static 'img/iphone16.jpg' %}" style="width: 100px; height: auto;">
-            </div>
-        </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+             <a class="navbar-brand" href="{% url 'findex' %}">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'fhistoria' %}">historia</a>
+             </li>
+               <li class="nav-item">
+               <a class="nav-link" href="{% url 'flogin' %}">Entrar</a>
+             </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Produtos
+               </a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'celulares' %}">Celulares</a></li>
+              <li><a class="dropdown-item" href="#">Capa</a></li>
+              <li><a class="dropdown-item" href="#">Acessorios</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     </header>
 
     <!-- Inclusão do JS do Bootstrap e Popper.js (necessários para o funcionamento do menu colapsável) -->
