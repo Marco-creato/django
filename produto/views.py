@@ -59,7 +59,10 @@ def update(request, id):
 
 
 def celulares(request):
-    return render(request, "celulares.html")
+    produtos = Produto.objects.all()
+    return render(request, "celulares.html", {"produtos": produtos})
+
+
 
 
 

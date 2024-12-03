@@ -6,26 +6,20 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: #000;
   padding: 10px 0;
 }
 
-nav ul {
+.card-body {
   list-style-type: none;
   text-align: center;
-}
-
-nav ul li {
   display: inline;
   margin: 0 15px;
-}
-
-nav ul li a {
   color: #fff;
   text-decoration: none;
 }
 
-.produto {
+.card {
   max-width: 1200px;
   margin: 30px auto;
   background-color: #fff;
@@ -34,18 +28,10 @@ nav ul li a {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.produto img {
-  width: 300px;
-  height: 300px;
-}
-
-button {
+.a {
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
   border: none;
   cursor: pointer;
-}
-button:hover {
-  background-color: #218838;
 }
