@@ -17,6 +17,7 @@ def salvar(request):
     vdescricao = request.POST.get("descricao")
     vpreco = request.POST.get("preco")
     vquantidade = request.POST.get("quantidade")
+    vcategoria = request.POST.get("categoria")
     vimagem = request.FILES.get("imagem")
     if vnome:
         Produto.objects.create(
@@ -24,6 +25,7 @@ def salvar(request):
             descricao=vdescricao,
             preco=vpreco,
             quantidade=vquantidade,
+            categoria=vcategoria,
             imagem=vimagem
         )
     return redirect(fproduto)
@@ -57,12 +59,12 @@ def update(request, id):
     produto.save()
     return redirect(fproduto)
 
+def flista_produtos(request):
+    categoria = request.GET.get('categoria')
+    if categoria:
+        produtos = Produto.objects.filter(categoria=categoria)
+    else:
+        produtos = Produto.objects.all()
 
-def celulares(request):
-    produtos = Produto.objects.all()
-    return render(request, "celulares.html", {"produtos": produtos})
-
-
-
-
+    return render(request, "lista_produtos.html", {"produtos": produtos})
 

@@ -24,8 +24,19 @@ def salvar_cli(request):
     return redirect(fcliente)
 
 def exibir_cli(request, id):
-    cliente = Cliente.objects.get(id=id)
-    return render(request, "update_cli.html", {"cliente": cliente})
+    if id is None:
+        id = request.session.get('cliente_id')
+
+    if id is not None:
+        try:
+            cliente = Cliente.objects.get(id=id)
+            return render(request, "update_cli", {"cliente": cliente})
+        except Cliente.DoesNotExist:
+            messages.error(request, 'cliente não encontrado.')
+            return redirect('findex')
+    else:
+        messages.error(request, 'Você não esta logado.')
+        return redirect('flogin')
 
 
 def excluir_cli(request, id):
@@ -45,6 +56,9 @@ def update_cli(request, id):
     return redirect(fcliente)
 
 def ftelacliente(request):
+    if 'cliente_id' not in request.session:
+        return redirect('flogin')
+
     return render(request, "telacliente.html")
 
 def flogin(requets):
@@ -58,19 +72,18 @@ def logar(request):
         try:
             cliente = Cliente.objects.get(email=email)
             if cliente.check_password(senha):
+                request.session['cliente_id'] = cliente.id
+                request.session['cliente_nome'] = cliente.nome
                 return redirect('ftelacliente')
             else:
                 return redirect('flogin')
         except Cliente.DoesNotExist:
             messages.error(request, 'Credencias invalidas.')
 
-
-
-
-
-
-
-
-
-
-
+def logout(request):
+    try:
+        del request.session['cliente_id']
+        del request.session['cliente_nome']
+    except keyError:
+        pass
+    return redirect('flogin')
