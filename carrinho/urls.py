@@ -16,18 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import fcliente,Fcadcliente,salvar_cli, exibir_cli, excluir_cli, update_cli, ftelacliente, flogin, logar, logout
+from .views import addcarrinho, exibir_carrinho
+
 
 urlpatterns = [
-    path('', fcliente),
-    path('Fcadcliente/',Fcadcliente, name='Fcadcliente'),
-    path('salvar_cli/', salvar_cli, name='salvar_cli'),
-    path('excluir_cli/<int:id>', excluir_cli, name='excluir_cli'),
-    path('exibir_cli/', exibir_cli, name='exibir_cli'),
-    path('update_cli/<int:id>', update_cli, name='update_cli'),
-    path('ftelacliente/', ftelacliente, name='ftelacliente'),
-    path('flogin/', flogin, name='flogin'),
-    path('logar/', logar, name='logar'),
-    path('logout/', logout, name='logout'),
-
+    path('addcarrinho/<int:produto_id>/', addcarrinho, name='addcarrinho'),
+    path('', exibir_carrinho, name='exibir_carrinho'),
 ]
+
