@@ -9,7 +9,7 @@ from .models import itemCarrinho
 def addcarrinho(request, produto_id):
     if request.method == 'POST':
         try:
-            produto = Produto.objects.get(id=produto_id)  # Certifique-se de que o nome do modelo é Produto
+            produto = Produto.objects.filter(id=produto_id)  # Certifique-se de que o nome do modelo é Produto
             quantidade = int(request.POST.get('quantidade', 1))  # Pega a quantidade, ou 1 como padrão
 
             cliente_id = request.session.get('cliente_id')  # Verifica se o cliente está logado
@@ -43,3 +43,8 @@ def exibir_carrinho(request):
 
 def carrinho(request):
     return render(request, "carrinho.html")
+
+def fexcluir(request, id):
+    produto = Produto.objects.filter(id=id)
+    produto.delete()
+    return redirect(carrinho)

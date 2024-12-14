@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <H2>Celulares</H2>
+                <H2 style="text-align: center;">Celulares</H2>
             </div>
         </div>
 
@@ -55,12 +57,12 @@
                  {% for produto in produtos %}
                 <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                       <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="width: 100px; height: auto;">
+                       <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="width: 225px; height: auto; display: block; margin-left: auto; margin-right: auto;">
                       <div class="card-body">
-                        <h5 class="card-title">{{produto.nome}}</h5>
-                        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+                        <h5 class="card-title" style="text-align: center; text-transform: uppercase;">{{produto.nome}}</h5>
+                        <p class="card-text" style="text-align: center;">{{produto.descricao}}</p>
 
-                        <form action="{% url 'addcarrinho' produto.id %}" method="post">
+                        <form action="{% url 'addcarrinho' produto.id %}" method="post" style="text-align: center;">
                             {% csrf_token %}
                              <input type="number" name="quantidade" min="1" value="1" style="width: 60px;">
                             <button type="submit" class="btn btn-primary">Comprar</button>

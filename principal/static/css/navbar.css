@@ -8,7 +8,7 @@
     font-size: 1.8em;  /* Aumente o tamanho da fonte */
 }
 
-.nav-link {
+.nav-link, navbar-text {
     color: #100000 !important;  /* Cor do texto dos links */
     padding: 10px 15px;  /* Espaçamento entre os links */
     transition: background-color 0.3s ease;  /* Transição suave ao passar o mouse */

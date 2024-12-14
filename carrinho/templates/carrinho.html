@@ -27,7 +27,7 @@
                 <td>{{ item.quantidade }}</td>
                 <td>R$ {{ item.total_preco }}</td>
                 <td>
-                    <a href="{% url 'excluir' item.id %}"><button type="button" class="btn btn-info">Excluir</button></a>
+                    <a href="{% url 'fexcluir' item.id %}"><button type="button" class="btn btn-info">Excluir</button></a>
                 </td>
             </tr>
             {% endfor %}
