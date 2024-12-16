@@ -44,7 +44,3 @@ def exibir_carrinho(request):
 def carrinho(request):
     return render(request, "carrinho.html")
 
-def fexcluir(request, id):
-    produto = Produto.objects.filter(id=id)
-    produto.delete()
-    return redirect(carrinho)

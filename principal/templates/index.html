@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="corpo">
     <!-- Cabeçalho -->
     <header>
         <h1 class="text-center">Acesso</h1>
@@ -29,14 +29,14 @@
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'fhistoria' %}">historia</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'flogin' %}">Entrar</a>
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                 <a class="nav-link" href="{% url 'exibir_carrinho' %}">Carrinho</a>
                 </li>
              </li>
                <li class="nav-item">
-               <a class="nav-link" href="{% url 'flogin' %}">Entrar</a>
+               <a class="nav-link" href="{% url 'fhistoria' %}">historia</a>
              </li>
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,7 +50,9 @@
       </ul>
     </div>
   </div>
-</nav>
+ </nav>
+
+
         <!-- Bloco para exibir mensagens -->
     {% if messages %}
         <div class="alert alert-danger" role="alert" id="messageModal" data-dismiss="modal">
@@ -61,6 +63,28 @@
     {% endif %}
 
     </header>
+
+ <div id="carouselExampleFade" class="carousel slide carousel-fade" style=" margin: 15px 20px;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                 <img src="{% static 'img/3-xiaomi.jpg' %}" class="d-block w-100" alt="xiaomi">
+            </div>
+            <div class="carousel-item">
+                 <img src="{% static 'img/5-celulares.jpg' %}" class="d-block w-100" alt="5-celulares">
+            </div>
+            <div class="carousel-item">
+                 <img src="{% static 'img/xiaomi-4.webp' %}" class="d-block w-100" alt="celulares">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+ </div>
 
     <!-- Inclusão do JS do Bootstrap e Popper.js (necessários para o funcionamento do menu colapsável) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
